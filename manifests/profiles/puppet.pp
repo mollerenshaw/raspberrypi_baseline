@@ -2,7 +2,7 @@
 class raspberrypi_baseline::profiles::puppet($version = 'latest') {
 	
   package { 'puppet':
-    ensure => $version.
+    ensure => $version,
   }
 
   file { '/etc/puppet/puppet.conf':
