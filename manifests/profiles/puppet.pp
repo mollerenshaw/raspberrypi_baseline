@@ -31,7 +31,8 @@ class raspberrypi_baseline::profiles::puppet($version = 'latest') {
   # Puppet-Related Ruby Gems
 
   package { ['puppet-lint', 'rake', 'rspec-puppet']:
-    ensure => latest,
+    ensure   => latest,
+    provider => gem,
   }
 
 }
