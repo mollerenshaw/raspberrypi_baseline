@@ -7,7 +7,7 @@ class raspberrypi_baseline::profiles::puppet($version = 'latest') {
 
   file { '/etc/puppet/puppet.conf':
     ensure   => file,
-    contents => template('raspberrypi_baseline/puppet/puppet.conf.erb'),
+    content  => template('raspberrypi_baseline/puppet/puppet.conf.erb'),
     owner    => 'root',
     group    => 'root',
     mode     => '0644',
