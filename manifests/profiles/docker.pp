@@ -17,6 +17,11 @@ class raspberrypi_baseline::profiles::docker($version = 'latest') {
     before  => Package['docker'],
   }
 
+  exec { 'add_docker_apt_key' :
+    command => '/usr/bin/apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D',
+    before  => Package['docker-engine'],
+  }
+
   package { 'docker-engine' :
     ensure => $version,
   }
