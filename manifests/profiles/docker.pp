@@ -6,7 +6,9 @@ class raspberrypi_baseline::profiles::docker($version = 'latest') {
     before => Package['docker'],
   }
 
-  $distro_codename = $facts['os']['lsb']['distcodename']
+#  $distro_codename = $::facts['os']['lsb']['distcodename']
+
+  $distro_codename = 'jessie'
 
   file { '/etc/apt/sources.list.d/docker.list' :
     ensure  => file,
