@@ -39,7 +39,7 @@ class raspberrypi_baseline::profiles::puppet($version = 'latest') {
   service { 'puppet':
     ensure  => stopped,
     enable  => false,
-    require => Package['puppet'],
+    require => Package['puppet-agent'],
   }
 
   # Puppet-Related Ruby Gems
