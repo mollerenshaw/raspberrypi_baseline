@@ -22,17 +22,18 @@ class raspberrypi_baseline::profiles::puppet($version = 'latest') {
     ensure   => file,
     owner    => 'root',
     group    => 'root',
-    mode     => '0644',
-    require  => Package['puppet-agent'],  
+    mode     => '0644',  
   }
 
   # Create some config files.
   file {
     $::settings::config:
-      content  => template('raspberrypi_baseline/puppet/puppet.conf.erb');
+      content  => template('raspberrypi_baseline/puppet/puppet.conf.erb'),
+      require  => Package['puppet-agent'];
 
     $::settings::hiera_config: 
       content  => template('raspberrypi_baseline/puppet/hiera.yaml.erb'),
+      require  => Package['puppet-agent'];
   }
 
   # We're not using the Puppet Agent daemon (running master-less).
