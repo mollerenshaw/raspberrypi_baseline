@@ -13,4 +13,7 @@ class raspberrypi_baseline::profiles::samba {
     mode    => '0644',
   }
 
+   # Might need to do the following manually to allow connections by the pi user:
+   # smbpasswd -a pi
+
 }
